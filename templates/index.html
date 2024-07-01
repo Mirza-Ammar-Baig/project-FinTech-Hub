@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %}FinTech Hub{% endblock %}
+
+{% block content %}
+    <div class="centered-text">
+        <h2>FinTech Hub</h2>
+        <p>FinTech Hub is the premier all-in-one solution for comprehensive financial calculations and market insights, 
+            tailored for investors, traders, and financial enthusiasts. It encompasses real-time cryptocurrency and stock market 
+            tracking, robust futures and spot market tools, a versatile currency converter, and daily news updates. 
+            The intuitive interface ensures seamless access to critical financial information and tools, enabling 
+            informed decision-making anytime, anywhere.</p>
+    
+        <p>FinTech Hub provides an extensive data repository and tools to optimize finances and accurately calculate profit and loss.
+            Stay updated with the latest market movements and relevant global news. FinTech Hub is the essential companion, equipped 
+            with the insights and resources necessary for financial success.</p>
+    </div>
+
+    <section id="crypto-news">
+        <h2>Crypto News</h2>
+        <ul>
+            {% if crypto_news %}
+                {% for article in crypto_news %}
+                    <li>
+                        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.description }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No crypto news available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <section id="stocks-news">
+        <h2>Stocks News</h2>
+        <ul>
+            {% if stocks_news %}
+                {% for article in stocks_news %}
+                    <li>
+                        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.description }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No stocks news available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <section id="indices-news">
+        <h2>Indices News</h2>
+        <ul>
+            {% if indices_news %}
+                {% for article in indices_news %}
+                    <li>
+                        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.description }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No indices news available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <section id="spot-news">
+        <h2>Spot News</h2>
+        <ul>
+            {% if spot_news %}
+                {% for article in spot_news %}
+                    <li>
+                        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.description }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No spot news available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+    <section id="futures-news">
+        <h2>Futures News</h2>
+        <ul>
+            {% if futures_news %}
+                {% for article in futures_news %}
+                    <li>
+                        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.description }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No futures news available</li>
+            {% endif %}
+        </ul>
+    </section>
+
+{% endblock %}

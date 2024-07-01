@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Currency Converter{% endblock %}
+
+{% block content %}
+    <h1>Currency Converter</h1>
+    <form id="converterForm" action="/converter" method="post" autocomplete="off">
+        <label for="amount">Amount (USD):</label>
+        <input type="number" name="amount" id="amount" step="0.01" required autocomplete="off">
+        <br><br>
+        <label for="base_currency">From Currency:</label>
+        <select name="base_currency" id="base_currency" autocomplete="off">
+            {% for code, name in currencies.items() %}
+                <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="target_currency">To Currency:</label>
+        <select name="target_currency" id="target_currency" autocomplete="off">
+            {% for code, name in currencies.items() %}
+                <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Convert</button>
+        <button type="button" id="resetButton">Reset</button>
+    </form>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    {% if converted_amount is not none %}
+        <div id="convertedAmount">
+            <h2>Converted Amount:</h2>
+            <p>{{ converted_amount | default('0.00') }}</p>
+        </div>
+    {% endif %}
+    <br><br>
+
+    <script>
+        document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('amount').value = '';
+            document.getElementById('base_currency').value = '';
+            document.getElementById('target_currency').value = '';
+            const convertedAmountDiv = document.getElementById('convertedAmount');
+            if (convertedAmountDiv) {
+                convertedAmountDiv.style.display = 'none';
+            }
+        });
+    </script>
+{% endblock %}

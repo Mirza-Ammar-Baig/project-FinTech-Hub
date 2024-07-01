@@ -1,0 +1,651 @@
+/* Reset and base styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1f33;
+    color: #fff;
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(to right, #2e0d36, #270438);
+    border-left: 2px solid #34559e; /* Border on the left side */
+    border-right: 2px solid #34559e; /* Border on the right side */
+    border-bottom: 2px solid #34559e; /* Border on the bottom */
+    color: white;
+    padding: 10px 10px 10px 10px; /* Added right padding */ 
+    box-shadow: 0 4px 6px rgba(35, 2, 45, 0.865);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: padding 0.3s ease; /* Smooth transition for padding */
+    border-bottom-left-radius: 20px; /* Rounded bottom left of the header */
+    border-bottom-right-radius: 20px; /* Rounded bottom right of the header */
+}
+
+/* Header background-color */
+.bg-dark {
+    background-color: #183f64b1 !important;
+    border-radius: 20px; /* Rounded edges for the header */
+    border: 3px solid #150749; /* Border with 2px width */
+}
+
+/* Background image */
+body {
+    background-image: url("/static/bitcoin-3396338_1920.jpg");
+    background-size: cover;
+    background-position: center 23%; /* Adjust this value to move the background image down */
+    background-repeat: no-repeat;
+    height: 100vh; /* Ensure the body spans the full viewport */
+    margin: 0;
+    overflow-x: hidden; /* Ensure other elements don't overflow horizontally */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+} 
+
+/* Create a pseudo-element for translucent overlay */
+body::before {
+    content: "";
+    position: fixed; /* Fixed position covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 3, 32, 0.5); /* Adjust opacity and color as needed */
+    z-index: -1; /* Move the overlay behind all other content */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+/* stylish navbar-brand */
+header .navbar-brand {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to right, #ffeea5, #ffd46e);
+    border: 2px solid #2a7944;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+header .navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    opacity: 0.5;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+header .navbar-brand:hover::before {
+    opacity: 0;
+}
+
+header .navbar-brand:hover {
+    background: linear-gradient(to right, #ffe093, #ffbf4d);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(75, 0, 130, 0.5);
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #05173b;
+    box-shadow: 0 2px 4px rgba(0.1, 0.1, 0.1, 0.3);
+    position: relative;
+}
+
+header nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+header nav ul li a:hover {
+    background-color: #300258;
+    transform: translateY(-2px);
+}
+
+header nav ul li a:hover::before {
+    border-color: #1c0429;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    text-align: left;
+    margin-top: 90px; /* Increased margin-top for better spacing */
+    box-sizing: border-box;
+    min-height: calc(100vh - 90px); /* Adjusted min-height */
+    padding-bottom: 70px;
+}
+
+/* Centered content styles for index.html */
+main#index-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.centered-text h2 {
+    margin: 0 auto;
+    max-width: 600px;
+    font-size: 42px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    margin-top: -23px; /* Adjust the negative margin as needed */
+}
+
+.centered-text h2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4.7px;
+    background-color: #4eb8e5;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.centered-text h2:hover::before {
+    transform: scaleX(1);
+}
+
+.centered-text p {
+    margin: 10px auto 20px;
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(3, 3, 3, 3);
+    font-weight: 400;
+    transition: transform 0.3s ease;
+}
+
+.centered-text p:hover {
+    transform: scale(1.05);
+}
+
+/* Form styles */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="number"],
+form select {
+    padding: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: hwb(48 32% 5%);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+section p {
+    margin-top: 5px;
+    color: #ccc;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+section ul li h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+/* Adjust link color for news articles */
+section a {
+    color: hsl(198, 79%, 87%);
+    transition: color 0.3s ease;
+}
+
+section a:hover {
+    color: hsl(220, 75%, 98%);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    header {
+        padding: 8px 0;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    header nav ul li {
+        margin-right: 10px;
+    }
+    main {
+        margin-top: 80px; /* Adjusted margin-top */
+        min-height: calc(100vh - 80px); /* Adjusted min-height */
+        padding-bottom: 60px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes text-glow {
+    0% {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Fancy navbar brand */
+header .navbar-brand {
+    background: linear-gradient(to right, #1a032f, #4a084e, #210836, #1a032f);
+    background-size: 400% 400%;
+    animation: gradient-animation 8s ease infinite;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header .navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+header .navbar-brand:hover {
+    background-color: #300258;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(75, 0, 130, 0.5);
+    transform: scale(1.05);
+}
+
+header .navbar-brand:hover::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+header .navbar-brand::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+
+header .navbar-brand:hover::after {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+header .navbar-brand::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #1a032f, #4a084e, #210836, #1a032f);
+    animation: gradient-border 6s ease infinite, pulse 2s infinite;
+    z-index: -1;
+}
+
+/* Footer styles */
+footer {
+    background: linear-gradient(to right, #210836, #4a084e);
+    color: white;
+    padding: 30px 0; /* Increased padding */
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(35, 2, 45, 0.865); /* Shadow at the top */
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px; /* Increased font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    footer {
+        padding: 20px 0; /* Adjusted padding */
+    }
+}
+
+/* Target the <h1> element inside the main content */
+main h1 {
+    font-size: 2.5rem;
+    text-align: center; /* Center align the heading */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Add spacing between letters */
+    color: #fff; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow */
+    background-color: #161456; /* Background color */
+    padding: 10px 20px; /* Padding around the text */
+    display: inline-block; /* Ensure inline block to fit content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Box shadow for the background */
+    border: 2px solid #4a47a3; /* Border around the heading */
+    margin: 0 auto; /* Center align the heading horizontally */
+}
+
+/* Bring the the page slightly downward to make it fit in */ 
+form {
+    margin-top: 13px; /* Adjust the margin-top to create space */
+}
+
+form label {
+    display: block; /* Ensure the label is displayed as block */
+    font-size: 18px; /* Adjust font size */
+    font-weight: bold; /* Make the font bold */
+    color: #fff; /* Text color */
+    text-shadow: 2px 2px 4px rgba(1, 1, 1, 1); /* Add text shadow with increased depth */
+    margin-bottom: 10px; /* Add some space below the label */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+form label:hover {
+    transform: translateY(-2px); /* Add a slight upward movement on hover */
+}
+
+form input[type="number"],
+form select {
+    padding: 8px; /* Adjust padding for better appearance */
+    font-size: 16px; /* Font size */
+    width: 30%; /* Full width of the container */
+    border: 3px solid #6e44d1; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #0f293ff2; /* Background color */
+    color: #fefdfd; /* Text color */
+    box-shadow: 0 2px 4px rgba(4, 48, 53, 0.721); /* Box shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
+}
+
+form input[type="number"]:focus,
+form select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #3e78c3; /* Border color on focus */
+    box-shadow: 0 0 8px rgba(92, 124, 250, 0.5); /* Box shadow on focus */
+}
+
+form select {
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none; /* For older versions of Safari */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"%3E%3Cpath d="M12 16.59L6.41 11 5 12.41 12 19.41 19 12.41 17.59 11 12 16.59z"%3E%3C/path%3E%3C/svg%3E'); /* Custom downward arrow icon for select */
+    background-repeat: no-repeat; /* Prevent repeating the background */
+    background-position: right 10px center; /* Position the arrow icon */
+    padding-right: 30px; /* Space for the arrow icon */
+    text-align: center; /* Center align the content inside */
+}
+
+form select::-ms-expand {
+    display: none; /* Hide the default arrow icon in Internet Explorer */
+}
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+    padding: 12px 24px; /* Adjust padding */
+    margin-right: 10px; /* Add margin between buttons */
+    font-size: 18px; /* Adjust font size */
+    cursor: pointer;
+    background-color: #4a90e2; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Box shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.959); /* Add text shadow for depth */
+}
+
+/* Gradient background */
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+    background-image: linear-gradient(to right, #667eea, #764ba2); /* Gradient colors */
+}
+
+/* Hover effect */
+[type="button"]:not(:disabled):hover,
+[type="reset"]:not(:disabled):hover,
+[type="submit"]:not(:disabled):hover,
+button:not(:disabled):hover {
+    transform: translateY(-2px); /* Move up slightly on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Active state effect */
+[type="button"]:not(:disabled):active,
+[type="reset"]:not(:disabled):active,
+[type="submit"]:not(:disabled):active,
+button:not(:disabled):active {
+    transform: translateY(2px); /* Move down slightly on click */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Lighter shadow on click */
+}
+
+/* Focus outline */
+[type="button"]:not(:disabled):focus,
+[type="reset"]:not(:disabled):focus,
+[type="submit"]:not(:disabled):focus,
+button:not(:disabled):focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); /* Focus outline color and size */
+} 
+
+a {
+    padding: 10px 20px; /* Adjust padding for spacing */
+    color: #fdfcff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 6px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    text-shadow: 1px 1px 1px rgba(1, 1, 1, 1); /* Text shadow for depth */
+}
+
+a:hover {
+    background-color: #161853; /* Background color on hover */
+    color: #201b6b; /* Text color on hover */
+    text-decoration: none; /* Remove underline */
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced box shadow on hover */
+    transform: translateY(-2px); /* Move text down slightly on hover */
+}
+
+a:active {
+    transform: translateY(1px); /* Push text up slightly on active state */
+}
+
+.centered-text {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative; /* Ensure it's above the overlay */
+    z-index: 1; /* Ensure it's above the overlay */
+    color: #ffffff; /* Ensure text is readable against the background */
+}
+
+/* Target <p> elements within <section> */
+section p {
+    color: #e4dfdf; /* Set the text color */
+    font-size: 16px; /* Set the font size */
+    line-height: 1.5; /* Set the line height */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #c4d6f5; /* Set the color */
+}
+
+/* Adjust scrollbar styles */
+body {
+    overflow-y: auto; /* Enable vertical scrollbar */
+    scrollbar-width: thin; /* Adjust width of scrollbar */
+    scrollbar-color: #4a47a3 #1a1f33; /* Adjust colors of scrollbar */
+}
+
+/* Add animation keyframes at the end of styles.css */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Apply initial state and animation to main */
+main {
+    padding: 20px;
+    text-align: left;
+    margin-top: 90px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 90px);
+    padding-bottom: 70px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Keyframes for fancier animation */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animations for section h2 headings */
+section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: hwb(48 32% 5%);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: slideInFromLeft 1s ease-out; /* Apply the slideInFromLeft animation */
+}
+
+
+

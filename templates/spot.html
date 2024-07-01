@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Spot Profit/Loss Calculator{% endblock %}
+
+{% block content %}
+    <h1>Spot Profit/Loss Calculator</h1>
+    <form id="spotForm" action="/spot" method="post" autocomplete="off">
+        <label for="instrument">Select a Spot:</label>
+        <select name="instrument" id="instrument" autocomplete="off">
+            {% for symbol, name in spots.items() %}
+                <option value="{{ symbol }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="entry_price">Entry Price (USD):</label>
+        <input type="number" name="entry_price" id="entry_price" step="0.01" required autocomplete="off">
+        <br><br>
+        <label for="mark_price">Mark Price (USD) (required):</label>
+        <input type="number" name="mark_price" id="mark_price" step="0.01" required autocomplete="off">
+        <br><br>
+        <label for="investment_amount">Investment Amount (USD):</label>
+        <input type="number" name="investment_amount" id="investment_amount" step="0.01" required autocomplete="off">
+        <br><br>
+        <button type="submit">Calculate Profit/Loss</button>
+        <button type="button" id="resetButton">Reset</button>
+    </form>
+    
+    {% if error_message %}
+        <p id="errorMessage">{{ error_message }}</p>
+    {% endif %}
+    {% if pnl is not none %}
+        <div id="result">
+            <h2>Profit/Loss: ${{ pnl|round(2) }}</h2>
+            {% if current_price is not none %}
+                <p>Current Price: ${{ current_price|round(2) }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <br><br>
+
+    <script>
+        document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('spotForm').reset();
+            const resultDiv = document.getElementById('result');
+            if (resultDiv) {
+                resultDiv.style.display = 'none'; // Hide the result section on reset
+            }
+        });
+    </script>
+{% endblock %}
